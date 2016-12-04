@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="366.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="handwriting.gui.DrawingEditorController">
+   <top>
+      <VBox>
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="newData" mnemonicParsing="false" text="New" />
+                        <MenuItem fx:id="openData" mnemonicParsing="false" text="Open" />
+                        <MenuItem fx:id="saveData" mnemonicParsing="false" text="Save" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="clear" mnemonicParsing="false" text="Clear" />
+                  <Button fx:id="drawErase" mnemonicParsing="false" text="Draw" />
+                  <Label text="Label" />
+                  <ChoiceBox fx:id="labelChoice" />
+                  <Label text="Index" />
+                  <ChoiceBox fx:id="drawingChoice" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Button fx:id="classify" mnemonicParsing="false" text="Classify" />
+                  <Button fx:id="record" mnemonicParsing="false" text="Record" />
+                  <Label text="Label" />
+                  <TextField fx:id="recordingClassificationLabel" prefHeight="26.0" prefWidth="118.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <TabPane>
+         <tabs>
+            <Tab text="Drawing">
+               <content>
+                  <Canvas fx:id="canvas" height="200.0" width="200.0" BorderPane.alignment="CENTER" />
+               </content>
+            </Tab>
+            <Tab text="Result">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="resultTable" layoutX="-1.0" layoutY="-7.0" prefHeight="200.0" prefWidth="300.0">
+                          <columns>
+                            <TableColumn fx:id="labels" prefWidth="75.0" text="Label" />
+                              <TableColumn fx:id="percents" prefWidth="75.0" text="Percent" />
+                            <TableColumn fx:id="rights" prefWidth="75.0" text="Correct" />
+                              <TableColumn fx:id="wrongs" prefWidth="75.0" text="Incorrect" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Visualization">
+               <content>
+                  <Canvas fx:id="visualization" height="200.0" width="200.0" />
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+   <bottom>
+      <VBox>
+         <children>
+            <HBox BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="train" mnemonicParsing="false" text="Train" />
+                  <ChoiceBox fx:id="algorithmChoice" />
+                  <ProgressBar fx:id="trainingProgress" progress="0.0" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Button fx:id="testAll" mnemonicParsing="false" text="Test all" />
+                  <TextField fx:id="testResults" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
